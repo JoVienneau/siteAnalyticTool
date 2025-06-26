@@ -32,16 +32,7 @@ A self-hosted user behavior analytics solution for WordPress, providing full dat
    git clone https://github.com/yourusername/custom-analytics.git
    cd custom-analytics
    ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Start the dev server:
-   ```bash
-   npm run dev
-   ```
+For the rest, I ran it inside a xampp server environment.
 
 ### For WordPress Integration
 
@@ -118,7 +109,7 @@ Example payload:
 ## Development Roadmap
 
 - [x] Core tracking functionality
-- [ ] WordPress backend integration
+- [ ] API and database
 - [ ] Data visualization dashboard
 - [ ] GDPR compliance tools
 - [ ] Error tracking
