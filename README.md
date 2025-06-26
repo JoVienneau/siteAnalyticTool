@@ -39,6 +39,7 @@ For the rest, I ran it inside a xampp server environment.
 1. Copy these files to your theme's `js` directory:
    - `tracker.js`
    - `session.js`
+   - `main.js`
    - `utils/logger.js`
 
 2. Enqueue the scripts in `functions.php`:
@@ -46,7 +47,7 @@ For the rest, I ran it inside a xampp server environment.
    function enqueue_custom_analytics() {
        wp_enqueue_script(
            'custom-analytics',
-           get_template_directory_uri() . '/js/tracker.js',
+           get_template_directory_uri() . '/js/main.js',
            array(),
            '1.0.0',
            true
@@ -123,21 +124,4 @@ Example payload:
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## License
 
-MIT License - see [LICENSE](LICENSE) for details.
-
-```
-
-Key sections you might want to customize:
-1. Add real screenshots (replace the placeholder image URL)
-2. Update installation paths to match your project structure
-3. Add specific WordPress integration details if needed
-4. Include backend API documentation when ready
-
-Would you like me to add any of these additional sections?
-- Troubleshooting guide
-- API reference documentation
-- Data privacy compliance details
-- Performance benchmarks
-- Example dashboard implementation
