@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML 5 Boilerplate</title>
+  </head>
+  <style>
+    /* Base Styles */
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 30px;
+        background-color: #f8fafc;
+    }
+
+    /* Typography */
+    h1 {
+        color: #2c3e50;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+        margin-top: 40px;
+        font-weight: 600;
+    }
+
+    h2 {
+        color: #2980b9;
+        margin-top: 35px;
+        font-weight: 500;
+        border-left: 4px solid #3498db;
+        padding-left: 12px;
+    }
+
+    h3 {
+        color: #34495e;
+        margin-top: 25px;
+        font-weight: 500;
+    }
+
+    h4 {
+        color: #4a6b8a;
+        margin-top: 20px;
+    }
+
+    p {
+        margin-bottom: 16px;
+        color: #4a5568;
+    }
+
+    /* Links */
+    a {
+        color: #3182ce;
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+
+    a:hover {
+        color: #2c5282;
+        text-decoration: underline;
+    }
+
+    /* Lists */
+    ul, ol {
+        margin-bottom: 25px;
+        padding-left: 25px;
+    }
+
+    li {
+        margin-bottom: 8px;
+        color: #4a5568;
+    }
+
+    /* Tables */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 25px 0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    th {
+        background-color: #3498db;
+        color: white;
+        text-align: left;
+        padding: 12px;
+    }
+
+    td {
+        padding: 10px 12px;
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f7fafc;
+    }
+
+    tr:hover {
+        background-color: #ebf8ff;
+    }
+
+    /* Code blocks */
+    code {
+        font-family: 'Courier New', Courier, monospace;
+        background-color: #edf2f7;
+        padding: 2px 4px;
+        border-radius: 3px;
+        color: #2d3748;
+    }
+
+    /* Horizontal Rules */
+    hr {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(to right, rgba(52, 152, 219, 0), rgba(52, 152, 219, 0.75), rgba(52, 152, 219, 0));
+        margin: 30px 0;
+    }
+
+    /* Special Sections */
+    .highlight-box {
+        background-color: #ebf5ff;
+        border-left: 4px solid #3498db;
+        padding: 15px 20px;
+        margin: 20px 0;
+        border-radius: 0 4px 4px 0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        body {
+            padding: 20px;
+        }
+        
+        table {
+            display: block;
+            overflow-x: auto;
+        }
+    }
+
+    /* Image Styling */
+    img {
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #e2e8f0;
+        border-radius: 4px;
+        margin: 20px 0;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+  </style>
+  <body>
+    <h1>Page test</h1>
+    <p>This is a test page that will allow me to test the multiple trackers for the website analysis tool that I am implementing. The first tracker that I am adding is the page tracker.</p>
+    <a href="./project/index.html">here is the link for more informations about the project</a>
+    <br>
+    <a href="#">this is a test</a>
+    <h2 id="project-objective">Project Objective</h2>
+    <p>Develop a complete, self-hosted user behavior tracking system for my WordPress portfolio site.<br>The goal is to have full control over collected data and demonstrate full-stack skills (Frontend, API design, Backend, Database).</p>
+    <hr>
+    <h2 id="user-behaviors-to-track-tracking-scope-">User Behaviors to Track (Tracking Scope)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Behavior</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Navigation</td>
+          <td>Page views (page loads)</td>
+        </tr>
+        <tr>
+          <td>Engagement</td>
+          <td>Scroll depth</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Clicks on Call-to-Action buttons</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Clicks on internal navigation links</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Clicks on external links</td>
+        </tr>
+        <tr>
+          <td>Forms</td>
+          <td>Contact form submissions</td>
+        </tr>
+        <tr>
+          <td>Session</td>
+          <td>Assign unique session ID per visit</td>
+        </tr>
+        <tr>
+          <td>Incoming Traffic</td>
+          <td>Referrer URL</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>UTM parameters (if present in URL)</td>
+        </tr>
+        <tr>
+          <td>User Environment</td>
+          <td>Device type (Mobile/Desktop/Tablet)</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Operating system</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Browser and version</td>
+        </tr>
+        <tr>
+          <td>Future Development</td>
+          <td>Time on page, JavaScript error tracking, heatmaps</td>
+        </tr>
+      </tbody>
+    </table>
+    <hr>
+    <h2 id="development-phases">Development Phases</h2>
+    <h3 id="week-one-frontend-focus-client-side-tracking-">Week One – Frontend Focus (Client-side Tracking)</h3>
+    <h4 id="week-goal">Week Goal</h4>
+    <p>Build a lightweight JavaScript tracking script integrated into WordPress, capable of capturing essential events and sending them to a collection endpoint (temporary mock backend).</p>
+    <hr>
+    <h3 id="week-1-tasks">Week 1 Tasks</h3>
+    <ol>
+      <li>Define tracking scope: - Finalize behavior list - Specify data for each event - Choose session management method (localStorage/cookies)</li>
+      <li>Frontend project structure: - Create dev environment (repo, JS files) - Define tracking script architecture</li>
+      <li>Implement event detectors: - Page views - Scroll depth - Clicks (buttons, links)</li>
+      <li>Set up mock endpoint: - Simple backend (PHP or external service like webhook.site) - Test JSON payload POST requests</li>
+      <li>End-to-end testing: - Simulate user navigation - Verify outgoing requests - Frontend debugging</li>
+      <li>Finalize payload structure: - Standardize event formats - Document JSON format</li>
+      <li>Documentation: - Write project README - Weekly summary and next steps prep (backend, database)</li>
+    </ol>
+    <hr>
+    <h2 id="next-steps-following-weeks-">Next Steps (Following Weeks)</h2>
+    <ul>
+      <li>Create MySQL database (using custom WordPress tables)</li>
+      <li>Develop API to receive/store events</li>
+      <li>Build data analysis dashboards</li>
+      <li>Performance and security optimizations</li>
+      <li>Add advanced features (heatmaps, error tracking, etc.)</li>
+    </ul>
+    <hr>
+    <h2 id="json-payload-specifications-per-event">JSON Payload Specifications per Event</h2>
+    <h3 id="1-page-view">1. Page View</h3>
+    <ul>
+      <li><p><strong>Event name (event_type):</strong><br><code>&quot;page_view&quot;</code></p>
+      </li>
+      <li><p><strong>Payload fields:</strong></p>
+        <ul>
+          <li><code>page_url</code>: Full page URL</li>
+          <li><code>referrer</code>: Referring URL</li>
+          <li><code>session_id</code>: Unique user session ID</li>
+          <li><code>timestamp</code>: Event date/time</li>
+          <li><code>device_type</code>: Device (desktop/mobile/tablet)</li>
+          <li><code>browser</code>: Browser</li>
+          <li><code>os</code>: Operating system</li>
+          <li><code>utm_parameters</code>: If present (source, medium, campaign, etc.)</li>
+        </ul>
+      </li>
+    </ul>
+    <hr>
+    <h3 id="2-scroll-depth">2. Scroll Depth</h3>
+    <ul>
+      <li><p><strong>Event name (event_type):</strong><br><code>&quot;scroll_depth&quot;</code></p>
+      </li>
+      <li><p><strong>Payload fields:</strong></p>
+        <ul>
+          <li><code>page_url</code></li>
+          <li><code>scroll_percentage</code>: Scroll depth reached (e.g., 25, 50, 75, 100)</li>
+          <li><code>session_id</code></li>
+          <li><code>timestamp</code></li>
+        </ul>
+      </li>
+    </ul>
+    <hr>
+    <h3 id="3-click-call-to-action-navigation-external-link-">3. Click (Call-to-Action, Navigation, External Link)</h3>
+    <ul>
+      <li><p><strong>Event name (event_type):</strong><br><code>&quot;click&quot;</code></p>
+      </li>
+      <li><p><strong>Payload fields:</strong></p>
+        <ul>
+          <li><code>element_id</code> or <code>element_text</code>: Clicked button/link ID or text</li>
+          <li><code>element_type</code>: Element type (button/link/nav/external)</li>
+          <li><code>page_url</code></li>
+          <li><code>session_id</code></li>
+          <li><code>timestamp</code></li>
+        </ul>
+      </li>
+    </ul>
+    <hr>
+    <h3 id="4-form-submission">4. Form Submission</h3>
+    <ul>
+      <li><p><strong>Event name (event_type):</strong><br><code>&quot;form_submission&quot;</code></p>
+      </li>
+      <li><p><strong>Payload fields:</strong></p>
+        <ul>
+          <li><code>form_id</code> or <code>form_name</code></li>
+          <li><code>fields_filled</code>: List of filled field names (without personal values)</li>
+          <li><code>page_url</code></li>
+          <li><code>session_id</code></li>
+          <li><code>timestamp</code></li>
+        </ul>
+      </li>
+    </ul>
+    <hr>
+    <h3 id="5-session-start-optional-">5. Session Start (optional)</h3>
+    <ul>
+      <li><p><strong>Event name (event_type):</strong><br><code>&quot;session_start&quot;</code></p>
+      </li>
+      <li><p><strong>Payload fields:</strong></p>
+        <ul>
+          <li><code>session_id</code></li>
+          <li><code>start_time</code></li>
+          <li><code>device_type</code></li>
+          <li><code>browser</code></li>
+          <li><code>os</code></li>
+        </ul>
+      </li>
+    </ul>
+    <hr>
+    <h2 id="global-fields-included-in-all-events-">Global Fields (Included in All Events)</h2>
+    <ul>
+      <li><code>session_id</code></li>
+      <li><code>timestamp</code></li>
+      <li><code>page_url</code></li>
+      <li><code>user_agent</code></li>
+      <li><code>device_type</code></li>
+      <li><code>browser</code></li>
+      <li><code>os</code></li>
+    </ul>
+    <hr>
+    <h2 id="immediate-next-steps">Immediate Next Steps</h2>
+    <ul>
+      <li>Validate this specification</li>
+      <li>Implement payload structure in JavaScript tracking script</li>
+      <li>Set up mock endpoint for POST testing</li>
+    </ul>
+    <hr>
+    <h2 id="session-management-method">Session Management Method</h2>
+    <p>To track unique user sessions across pages and interactions, I&#39;ll use browser cookies.</p>
+    <h3 id="technical-details-">Technical Details:</h3>
+    <ul>
+      <li><p><strong>Session ID Generation:</strong><br>UUID (Universally Unique Identifier) for each new session.</p>
+      </li>
+      <li><p><strong>Storage Method:</strong><br>Session ID stored in cookie with properties:</p>
+        <ul>
+          <li><strong>Name:</strong> <code>custom_analytics_session_id</code></li>
+          <li><strong>Expiration:</strong><br>30 minutes after last interaction (rolling expiration). Aligns with standard analytics practices.</li>
+        </ul>
+      </li>
+      <li><p><strong>Session Timeout Logic:</strong><br>New session ID generated after 30 minutes inactivity.</p>
+      </li>
+      <li><p><strong>Privacy Considerations:</strong><br>First-party cookie with no personal data remains privacy-compliant.<br>GDPR consent mechanism may be added later.</p>
+      </li>
+    </ul>
+    <h3 id="example-workflow-">Example Workflow:</h3>
+    <ol>
+      <li><p>First page load:<br>→ Check for existing cookie<br>→ Generate new UUID if missing<br>→ Set cookie with 30-minute expiration  </p>
+      </li>
+      <li><p>Each interaction:<br>→ Refresh cookie expiration  </p>
+      </li>
+      <li><p>After 30 minutes inactivity:<br>→ New session ID generated  </p>
+      </li>
+    </ol>
+    <h3 id="data-flow-diagram">Data Flow Diagram</h3>
+    <p><a href="https://vienneaucodetrail.tech/wp-content/uploads/2025/06/deepseek_mermaid_20250625_ae603d-scaled.png"><img src="https://vienneaucodetrail.tech/wp-content/uploads/2025/06/deepseek_mermaid_20250625_ae603d-scaled.png" alt="Data Flow Diagram"></a></p>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
