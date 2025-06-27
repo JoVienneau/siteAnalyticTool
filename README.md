@@ -1,127 +1,189 @@
-Here's a comprehensive `README.md` for your custom analytics project:
+## Project Objective
 
-```markdown
-# Custom Analytics Tracker
+Develop a complete, self-hosted user behavior tracking system for my WordPress portfolio site.  
+The goal is to have full control over collected data and demonstrate full-stack skills (Frontend, API design, Backend, Database).
 
-A self-hosted user behavior analytics solution for WordPress, providing full data ownership and customization.
+---
 
-![Analytics Dashboard Preview](https://example.com/path-to-preview-image.jpg)
+## User Behaviors to Track (Tracking Scope)
 
-## Features
+| Category | Behavior |
+|---|---|
+| Navigation | Page views (page loads) |
+| Engagement | Scroll depth |
+|  | Clicks on Call-to-Action buttons |
+|  | Clicks on internal navigation links |
+|  | Clicks on external links |
+| Forms | Contact form submissions |
+| Session | Assign unique session ID per visit |
+| Incoming Traffic | Referrer URL |
+|  | UTM parameters (if present in URL) |
+| User Environment | Device type (Mobile/Desktop/Tablet) |
+|  | Operating system |
+|  | Browser and version |
+| Future Development | Time on page, JavaScript error tracking, heatmaps |
 
-- **Privacy-focused**: No third-party data collection
-- **Real-time tracking**:
-  - Page views
-  - Click events (internal/external/CTAs)
-  - Scroll depth
-  - Form interactions
-- **Session management** with cookie-based tracking
-- **UTM parameter capture** for campaign tracking
-- **Device/browser detection**
-- **Developer-friendly**:
-  - JSON payload structure
-  - API-ready for backend integration
-  - Test mode with console logging
+---
 
-## Installation
+## Development Phases
 
-### For Development
+### Week One – Frontend Focus (Client-side Tracking)
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/custom-analytics.git
-   cd custom-analytics
-   ```
-For the rest, I ran it inside a xampp server environment.
+#### Week Goal
 
-### For WordPress Integration
+Build a lightweight JavaScript tracking script integrated into WordPress, capable of capturing essential events and sending them to a collection endpoint (temporary mock backend).
 
-1. Copy these files to your theme's `js` directory:
-   - `tracker.js`
-   - `session.js`
-   - `main.js`
-   - `utils/logger.js`
+---
 
-2. Enqueue the scripts in `functions.php`:
-   ```php
-   function enqueue_custom_analytics() {
-       wp_enqueue_script(
-           'custom-analytics',
-           get_template_directory_uri() . '/js/main.js',
-           array(),
-           '1.0.0',
-           true
-       );
-   }
-   add_action('wp_enqueue_scripts', 'enqueue_custom_analytics');
-   ```
+### Week 1 Tasks
+1. Define tracking scope: - Finalize behavior list - Specify data for each event - Choose session management method (localStorage/cookies)
+2. Frontend project structure: - Create dev environment (repo, JS files) - Define tracking script architecture
+3. Implement event detectors: - Page views - Scroll depth - Clicks (buttons, links)
+4. Set up mock endpoint: - Simple backend (PHP or external service like webhook.site) - Test JSON payload POST requests
+5. End-to-end testing: - Simulate user navigation - Verify outgoing requests - Frontend debugging
+6. Finalize payload structure: - Standardize event formats - Document JSON format
+7. Documentation: - Write project README - Weekly summary and next steps prep (backend, database)
 
-## Usage
+---
 
-### Basic Implementation
+## Next Steps (Following Weeks)
 
-```javascript
-// In your main.js
-import { initClickTracking, trackPageView } from './tracker.js';
+- Create MySQL database (using custom WordPress tables)
+- Develop API to receive/store events
+- Build data analysis dashboards
+- Performance and security optimizations
+- Add advanced features (heatmaps, error tracking, etc.)
 
-document.addEventListener('DOMContentLoaded', () => {
-  trackPageView();
-  initClickTracking();
-});
-```
+---
 
-### Tracking Events
+## JSON Payload Specifications per Event
 
-| Event Type          | Function Call                     |
-|---------------------|-----------------------------------|
-| Page View           | `trackPageView()`                 |
-| Click               | `trackClick(element)`             |
-| Scroll Depth        | `trackScrollDepth(percentage)`    |
-| Form Submission     | `trackFormSubmit(formElement)`    |
+### 1. Page View
 
-### Testing with UTM Parameters
+- **Event name (event_type):**  
+`"page_view"`
 
-Use these test URLs:
-```
-http://yoursite.com/?utm_source=test&utm_medium=manual&utm_campaign=dev_test
-http://yoursite.com/?utm_source=google&utm_medium=cpc&utm_term=analytics
-```
+- **Payload fields:**
+  - `page_url`: Full page URL
+  - `referrer`: Referring URL
+  - `session_id`: Unique user session ID
+  - `timestamp`: Event date/time
+  - `device_type`: Device (desktop/mobile/tablet)
+  - `browser`: Browser
+  - `os`: Operating system
+  - `utm_parameters`: If present (source, medium, campaign, etc.)
 
-## Data Structure
+---
 
-Example payload:
-```json
-{
-  "event_type": "page_view",
-  "page_url": "https://example.com/about",
-  "referrer": "https://google.com",
-  "session_id": "abc123-xzy456",
-  "timestamp": "2024-03-15T12:30:45.000Z",
-  "utm_parameters": {
-    "utm_source": "newsletter",
-    "utm_medium": "email"
-  },
-  "device_type": "desktop",
-  "browser": "Chrome",
-  "os": "Windows"
-}
-```
+### 2. Scroll Depth
 
-## Development Roadmap
+- **Event name (event_type):**  
+`"scroll_depth"`
 
-- [x] Core tracking functionality
-- [ ] API and database
-- [ ] Data visualization dashboard
-- [ ] GDPR compliance tools
-- [ ] Error tracking
-- [ ] Heatmap functionality
+- **Payload fields:**
+  - `page_url`
+  - `scroll_percentage`: Scroll depth reached (e.g., 25, 50, 75, 100)
+  - `session_id`
+  - `timestamp`
 
-## Contributing
+---
 
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+### 3. Click (Call-to-Action, Navigation, External Link)
 
+- **Event name (event_type):**  
+`"click"`
 
+- **Payload fields:**
+  - `element_id` or `element_text`: Clicked button/link ID or text
+  - `element_type`: Element type (button/link/nav/external)
+  - `page_url`
+  - `session_id`
+  - `timestamp`
+
+---
+
+### 4. Form Submission
+
+- **Event name (event_type):**  
+`"form_submission"`
+
+- **Payload fields:**
+  - `form_id` or `form_name`
+  - `fields_filled`: List of filled field names (without personal values)
+  - `page_url`
+  - `session_id`
+  - `timestamp`
+
+---
+
+### 5. Session Start (optional)
+
+- **Event name (event_type):**  
+`"session_start"`
+
+- **Payload fields:**
+  - `session_id`
+  - `start_time`
+  - `device_type`
+  - `browser`
+  - `os`
+
+---
+
+## Global Fields (Included in All Events)
+
+- `session_id`
+- `timestamp`
+- `page_url`
+- `user_agent`
+- `device_type`
+- `browser`
+- `os`
+
+---
+
+## Immediate Next Steps
+
+- Validate this specification
+- Implement payload structure in JavaScript tracking script
+- Set up mock endpoint for POST testing
+
+---
+
+## Session Management Method
+
+To track unique user sessions across pages and interactions, I'll use browser cookies.
+
+### Technical Details:
+
+- **Session ID Generation:**  
+UUID (Universally Unique Identifier) for each new session.
+
+- **Storage Method:**  
+Session ID stored in cookie with properties:
+  - **Name:** `custom_analytics_session_id`
+  - **Expiration:**  
+    30 minutes after last interaction (rolling expiration). Aligns with standard analytics practices.
+
+- **Session Timeout Logic:**  
+New session ID generated after 30 minutes inactivity.
+
+- **Privacy Considerations:**  
+First-party cookie with no personal data remains privacy-compliant.  
+GDPR consent mechanism may be added later.
+
+### Example Workflow:
+
+1. First page load:  
+→ Check for existing cookie  
+→ Generate new UUID if missing  
+→ Set cookie with 30-minute expiration  
+
+2. Each interaction:  
+→ Refresh cookie expiration  
+
+3. After 30 minutes inactivity:  
+→ New session ID generated  
+
+### Data Flow Diagram
+[![Data Flow Diagram](https://vienneaucodetrail.tech/wp-content/uploads/2025/06/deepseek_mermaid_20250625_ae603d-scaled.png)](https://vienneaucodetrail.tech/wp-content/uploads/2025/06/deepseek_mermaid_20250625_ae603d-scaled.png)
